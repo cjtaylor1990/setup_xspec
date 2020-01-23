@@ -4,6 +4,7 @@
 #Arguments from command line
 heasoftVersion=$1 #Heasoft verison to set up
 destinationDir=$2 #Relative (or absolute) path directory where to place the HEASoft directory
+cshrcFile=$3 #Path to .cshrc file 
 
 #System archetecture (current)
 systemArch="x86_64-pc-linux-gnu-libc2.17"
@@ -45,8 +46,8 @@ make
 make install
 
 #Adding the necessary components to the .cshrc file
-echo "SETENV ${absolutePathDestination}/heasoft-${heasoftVersion}/${systemArch}" >> ~/.cshrc
-echo "alias heainit "source $HEADAS/headas-init.csh"" >> ~/.cshrc
+echo "setenv HEADAS ${absolutePathDestination}/heasoft-${heasoftVersion}/${systemArch}" >> $cshrcFile
+echo "alias heainit "source $HEADAS/headas-init.csh"" >> $cshrcFile
 
 #Returning user
 cd ${originalLocation}
