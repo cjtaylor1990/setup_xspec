@@ -1,8 +1,12 @@
+#!/bin/bash
 #Currently built for the Department of Astronomy - University of Maryland
 
 #Arguments from command line
 heasoftVersion=$1 #Heasoft verison to set up
-destination=$2 #Relative (or absolute) path directory where to place the HEASoft directory
+destinationDir=$2 #Relative (or absolute) path directory where to place the HEASoft directory
+
+#System archetecture (current)
+systemArch="x86_64-pc-linux-gnu-libc2.17"
 
 #Finding absolute path to current location to return user after completed
 originalLocation=$(pwd)
@@ -14,7 +18,7 @@ heasoftFile="heasoft-6.26.1src.tar.gz"
 heasoftUrl="https://heasarc.gsfc.nasa.gov/FTP/software/lheasoft/lheasoft${heasoftVersion}/${heasoftFile}"
 
 #Going to directory
-cd ${destination}
+cd ${destinationDir}
 
 #Finding absolute path of destination directory (useful for later)
 absolutePathDestination=$(pwd)
@@ -40,10 +44,9 @@ cd BUILD_DIR
 make
 make install
 
-#TODO Finish the pathin the SETENV command
 #Adding the necessary components to the .cshrc file
-echo "SETENV ${absolutePathDestination}/heasoft-${heasoftVersion}/" >> .cshrc
-alias heainit "source $HEADAS/headas-init.csh"
+echo "SETENV ${absolutePathDestination}/heasoft-${heasoftVersion}/${systemArch}" >> ~/.cshrc
+echo "alias heainit "source $HEADAS/headas-init.csh"" >> ~/.cshrc
 
 #Returning user
 cd ${originalLocation}
