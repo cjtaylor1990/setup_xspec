@@ -23,7 +23,7 @@ relxillFile="${relxillName}.tgz"
 wget "https://www.sternwarte.uni-erlangen.de/~dauser/research/relxill/${relxillFile}" --no-check-certificate
 
 #Unpacking the model tarball
-tar -xfz ${relxillFile}
+tar xfz ${relxillFile}
 rm -f ${relxillFile}
 
 #Downloading RELXILL tables
@@ -31,7 +31,7 @@ relxillTablesFile="relxill_tables.tgz"
 wget "https://www.sternwarte.uni-erlangen.de/~dauser/research/relxill/${relxillTablesFile}" --no-check-certificate
 
 #Unpacking the table tarball
-tar -xfz ${relxillTablesFile}
+tar xfz ${relxillTablesFile}
 rm -f ${relxillTablesFile}
 
 #Compiling RELXILL
