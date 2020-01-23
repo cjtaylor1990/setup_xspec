@@ -13,15 +13,18 @@ heasoftFile="heasoft-6.26.1src.tar.gz"
 #URL for download for HEASoft with all moddern packages
 heasoftUrl="https://heasarc.gsfc.nasa.gov/FTP/software/lheasoft/lheasoft${heasoftVersion}/${heasoftFile}"
 
+#Going to directory
+cd ${destination}
+
+#Finding absolute path of destination directory (useful for later)
+absolutePathDestination=$(pwd)
+
 #Downloading XSPEC tar.gz file
 wget ${heasoftUrl}
 
 #Unzipping tar.gz file
-tar -xvf ${heasoftFile} -C ${destination}
-rm -f ${xspe}
-
-#Going to directory
-cd ${destination}
+tar -xvf ${heasoftFile}
+rm -f ${heasoftFile}
 
 #Finding absolute path of destination directory (useful for later)
 absolutePathDestination=$(pwd)
