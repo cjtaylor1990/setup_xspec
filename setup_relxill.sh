@@ -16,7 +16,7 @@ cd ${heasoftPath}
 #Downloading the model tarball
 relxillName="relxill_model_v${relxillVersion}"
 relxillFile="${relxillName}.tgz"
-wget "https://www.sternwarte.uni-erlangen.de/~dauser/research/relxill/${relxilLFile}"
+wget "https://www.sternwarte.uni-erlangen.de/~dauser/research/relxill/${relxillFile}" --no-check-certificate
 
 #Unpacking the model tarball
 tar -xvf ${relxillFile}
@@ -27,7 +27,7 @@ cd ${relxillName}
 
 #Downloading RELXILL tables
 relxillTablesFile="relxill_tables.tgz"
-wget "https://www.sternwarte.uni-erlangen.de/~dauser/research/relxill/${relxillTablesFile}"
+wget "https://www.sternwarte.uni-erlangen.de/~dauser/research/relxill/${relxillTablesFile}" --no-check-certificate
 
 #Unpacking the table tarball
 tar -xfz ${relxillTablesFile}
