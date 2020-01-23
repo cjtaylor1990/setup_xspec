@@ -13,17 +13,18 @@ currentPosition=$(pwd)
 #Switching to HEASoft directory
 cd ${heasoftPath}
 
-#Downloading the model tarball
+#Making RELXILL directory and going there
 relxillName="relxill_model_v${relxillVersion}"
+mkdir ${relxillName}
+cd ${relxillName}
+
+#Downloading the model tarball
 relxillFile="${relxillName}.tgz"
 wget "https://www.sternwarte.uni-erlangen.de/~dauser/research/relxill/${relxillFile}" --no-check-certificate
 
 #Unpacking the model tarball
-tar -xvf ${relxillFile}
+tar -xfz ${relxillFile}
 rm -f ${relxillFile}
-
-#Moving inside of the new RELXILL directory
-cd ${relxillName}
 
 #Downloading RELXILL tables
 relxillTablesFile="relxill_tables.tgz"
