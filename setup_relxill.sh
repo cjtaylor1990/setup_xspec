@@ -4,6 +4,9 @@
 #Input from command line
 relxillVersion=$1
 
+#Making sure I have access to XSPEC
+source "$HEADAS/headas-init.csh"
+
 #Defining path to HEASoft directory based on the environmental HEADAS variable used
 #in setting up XSPEC
 heasoftPath=$HEADAS/..
