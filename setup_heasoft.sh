@@ -13,7 +13,7 @@ systemArch="x86_64-pc-linux-gnu-libc2.17"
 originalLocation=$(pwd)
 
 #HEASoft tar.gz (gzip tarball)
-heasoftFile="heasoft-6.26.1src.tar.gz"
+heasoftFile="heasoft-${heasoftVersion}src.tar.gz"
 
 #URL for download for HEASoft with all moddern packages
 heasoftUrl="https://heasarc.gsfc.nasa.gov/FTP/software/lheasoft/lheasoft${heasoftVersion}/${heasoftFile}"
