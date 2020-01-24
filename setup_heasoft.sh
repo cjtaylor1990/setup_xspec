@@ -7,7 +7,7 @@ destinationDir=$2 #Relative (or absolute) path directory where to place the HEAS
 cshrcFile=$3 #Path to .cshrc file 
 
 #System archetecture (current)
-archName="x86_64-unknown-linux-gnu-libc2.17"#"x86_64-pc-linux-gnu-libc2.17"
+#archName="x86_64-unknown-linux-gnu-libc2.17"#"x86_64-pc-linux-gnu-libc2.17"
 
 #Finding absolute path to current location to return user after completed
 originalLocation=$(pwd)
@@ -46,7 +46,7 @@ make
 make install
 
 #Adding the necessary components to the .cshrc file
-HEADAS="${absolutePathDestination}/heasoft-${heasoftVersion}/${archName}"
+HEADAS="${absolutePathDestination}/heasoft-${heasoftVersion}/x86_64-unknown-linux-gnu-libc2.17"
 echo "setenv HEADAS ${HEADAS}" >> $cshrcFile
 echo "alias heainit "source ${HEADAS}/headas-init.csh"" >> $cshrcFile
 
