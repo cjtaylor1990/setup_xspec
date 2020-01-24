@@ -48,7 +48,7 @@ make install
 #Adding the necessary components to the .cshrc file
 heaDir="${absolutePathDestination}/heasoft-${heasoftVersion}/${archName}"
 echo "setenv HEADAS ${heaDir}" >> $cshrcFile
-echo "alias heainit "source $HEADAS/headas-init.csh"" >> $cshrcFile
+echo "alias heainit "source \$HEADAS/headas-init.csh"" >> $cshrcFile
 
 #Returning user
 cd ${originalLocation}
