@@ -46,9 +46,9 @@ make
 make install
 
 #Adding the necessary components to the .cshrc file
-HEADAS="${absolutePathDestination}/heasoft-${heasoftVersion}/x86_64-unknown-linux-gnu-libc2.17"
-echo "setenv HEADAS ${HEADAS}" >> $cshrcFile
-echo "alias heainit "source ${HEADAS}/headas-init.csh"" >> $cshrcFile
+heaDir="${absolutePathDestination}/heasoft-${heasoftVersion}/x86_64-unknown-linux-gnu-libc2.17"
+echo "setenv HEADAS ${heaDir}" >> $cshrcFile
+echo "alias heainit "source $HEADAS/headas-init.csh"" >> $cshrcFile
 
 #Returning user
 cd ${originalLocation}
