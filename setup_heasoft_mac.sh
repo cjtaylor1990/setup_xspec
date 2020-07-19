@@ -1,21 +1,18 @@
 #!/bin/bash
-#Currently built for the Department of Astronomy - University of Maryland
-
-#Need to do xcode-select --install
-#Need to install brew
-#From brew, need to install wget and gcc (for gfortran)
-#Need xquartz
-#Need to do export CC=/usr/local/bin/gcc
-#Need to do export CXX=/usr/bin/g++
-
+#Currently built for Mac OSX - Catalina 10.15.6 on 07/19/2020
 
 #Arguments from command line
 heasoftVersion=$1 #Heasoft verison to set up
 destinationDir=$2 #Relative (or absolute) path directory where to place the HEASoft directory
-cshrcFile=$3 #Path to .cshrc file 
+zshrcFile=$3 #Path to .cshrc file
+
+#Setting compilers as environmental variables
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+export FC=/usr/local/bin/gfortran-7
 
 #System archetecture (current)
-archName="x86_64-unknown-linux-gnu-libc2.17"#"x86_64-pc-linux-gnu-libc2.17"
+archName="x86_64-apple-darwin19.6.0"
 
 #Finding absolute path to current location to return user after completed
 originalLocation=$(pwd)
@@ -55,8 +52,8 @@ make install
 
 #Adding the necessary components to the .cshrc file
 heaDir="${absolutePathDestination}/heasoft-${heasoftVersion}/${archName}"
-echo "setenv HEADAS ${heaDir}" >> $cshrcFile
-echo "alias heainit "source \$HEADAS/headas-init.csh"" >> $cshrcFile
+echo "export HEADAS=${heaDir}" >> $zshrcFile
+echo "alias heainit="source \$HEADAS/headas-init.sh"" >> $zshrcFile
 
 #Returning user
 cd ${originalLocation}
