@@ -1,8 +1,10 @@
 # setup_xspec
 
 # Requirements for Mac
-* xcode command-line tools - can be downloaded via the command "xcode-select --install" in the command line
+* gcc - Best to install via homebrew with "brew install gcc"
 
-* gfortran version 7 - best to install via homebrew with gcc: "brew install gcc@7"
+* wget - Install via homebrew: "brew install wget"
 
-* wget - install via homebrew: "brew install wget"
+# Special Note on Clang
+While the XCode C compiler, Clang, was the standard compiler to use for XSPEC,
+this is no longer the case and is no longer compatible.

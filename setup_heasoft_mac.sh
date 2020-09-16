@@ -1,15 +1,15 @@
 #!/bin/bash
-#Currently built for Mac OSX - Catalina 10.15.6 on 07/19/2020
+#Currently built for Mac OSX - Catalina 10.15.6 on 09/16/2020
 
 #Arguments from command line
 heasoftVersion=$1 #Heasoft verison to set up
 destinationDir=$2 #Relative (or absolute) path directory where to place the HEASoft directory
-zshrcFile=$3 #Path to .cshrc file
+zshrcFile=$3 #Path to .zshrc file
 
 #Setting compilers as environmental variables
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
-export FC=/usr/local/bin/gfortran-7
+export CC=/usr/local/bin/gcc-10
+export CXX=/usr/local/bin/g++-10
+export FC=/usr/local/bin/gfortran-10
 
 #System archetecture (current)
 archName="x86_64-apple-darwin19.6.0"
@@ -50,10 +50,10 @@ cd BUILD_DIR
 make
 make install
 
-#Adding the necessary components to the .cshrc file
+#Adding the necessary components to the .zshrc file
 heaDir="${absolutePathDestination}/heasoft-${heasoftVersion}/${archName}"
 echo "export HEADAS=${heaDir}" >> $zshrcFile
-echo "alias heainit="source \$HEADAS/headas-init.sh"" >> $zshrcFile
+echo "alias heainit=\". \$HEADAS/headas-init.sh\"" >> $zshrcFile
 
 #Returning user
 cd ${originalLocation}
