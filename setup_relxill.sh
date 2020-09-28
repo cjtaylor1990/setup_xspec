@@ -1,5 +1,6 @@
 #!/bin/bash
 #Currently built for the Department of Astronomy - University of Maryland
+#Currently works for Mac (9/28/2020)
 
 #Input from command line
 relxillVersion=$1
